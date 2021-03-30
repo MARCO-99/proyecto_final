@@ -3,7 +3,28 @@ const router = express.Router();
 
 
 router.get('/',(req,res)=>{
-        res.render('prueba.ejs')
+        res.render('./viewsAlumno/indexAlumno.ejs')
 })
 
+router.get('/Matematicas',(req,res)=>{
+        res.render('./viewsAlumno/matematicas.ejs')
+})
+router.get('/programacion',(req,res)=>{
+        res.render('./viewsAlumno/programacion.ejs')
+})
+router.get('/ingles',(req,res)=>{
+        res.render('./viewsAlumno/ingles.ejs')
+})
+router.get('/redes',(req,res)=>{
+        res.render('./viewsAlumno/redes.ejs')
+})
+router.get('/sistemasOperativos',(req,res)=>{
+        res.render('./viewsAlumno/sistemasOperativos.ejs')
+})
+router.get('/habilidades',(req,res)=>{
+        res.render('./viewsAlumno/habilidades.ejs')
+})
+router.get('/basededatos',(req,res)=>{
+        res.render('./viewsAlumno/basededatos.ejs')
+})
 module.exports = router;

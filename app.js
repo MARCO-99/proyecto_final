@@ -14,3 +14,8 @@ app.use('/',require('./router'));
 app.listen(3000, ()=>{
     console.log('Server running in http://localhost:3000/')
 });
+
+
+//directorio public
+app.use('/resources',express.static('public'));
+app.use('/resources',express.static(__dirname + '/public'));
