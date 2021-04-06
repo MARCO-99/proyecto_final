@@ -1,0 +1,43 @@
+body{
+    background-image: url(../imagenes/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.formulario{
+    background-color:rgba(0,0,0,.1);
+    padding:30px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,.568) ;
+    color: white;
+
+
+}
+.form-control{
+    background: rgb(0,0,0,.3);
+    outline: none;
+    border-style: none;
+    transition: 0.5s ease-in;
+    box-shadow: none;
+}
+.form-control:focus{
+    background: none;
+    box-shadow: none;
+    outline: none;
+}
+.form-control::placeholder{
+    color:white;
+}
+.INGRESAR{
+    background: skyblue;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700!important;
+    color: white;
+}
+.olvide{
+    color:white;
+}
+.olvide:hover{
+    color:white;
+}
