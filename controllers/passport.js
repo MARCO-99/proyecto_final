@@ -11,5 +11,9 @@ passport.use('local.signin', new LocalStrategy({
    // console.log(req.body)
     //console.log(user)
     //console.log(pass)
-    const rows = await pool.query('SELECT*FROM login wheres 1')
+    const rows = await pool.query('SELECT*FROM login where username= ?', [user]);
+    if(rows.length>0){
+        const user= rows[0];
+        
+    }
 }))
