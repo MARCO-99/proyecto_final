@@ -1,16 +1,11 @@
 const express = require('express');
+
 const router = express.Router();
 
-
+const passport =require('passport');
+//VISTAS
 router.get('/',(req,res)=>{
         res.render('./viewsAlumno/indexAlumno.ejs')
-})
-router.get('/login',(req,res)=>{
-        res.render('../views/login.ejs')
-})
-
-router.get('/estilos',(req,res)=>{
-        res.render('./css/estilos.css')
 })
 
 router.get('/Matematicas',(req,res)=>{
@@ -36,11 +31,23 @@ router.get('/basededatos',(req,res)=>{
 })
 
 //directorio public
-router.use('/resources',express.static('public'));
-router.use('/resources',express.static(__dirname + '/public'));
+router.use('/resources',express.static('Public'));
+router.use('/resources',express.static(__dirname + '/Public'));
 
 
 //autenticacion
+router.get('/login',(req,res)=>{
+        res.render('../views,/login.ejs')
+})
+
+router.post('/signin',(req,res,next)=>{
+        passport.authenticate('local.signin',{
+                successRedirect:'/',
+                failureRedirect:'/login',
+                failureFlash: true
+        });(req,res,next)
+})
+
 
 //links
 module.exports = router;

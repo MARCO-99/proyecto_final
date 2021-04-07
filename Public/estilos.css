@@ -6,7 +6,6 @@ body{
 }
 .formulario{
     background-color:rgba(0,0,0,.1);
-    padding:30px;
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0,0,0,.568) ;
     color: white;
