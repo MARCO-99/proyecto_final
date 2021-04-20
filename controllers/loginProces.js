@@ -119,7 +119,7 @@ exports.AuthDB = (req, res) => {
         
         res.render("./viewsAlumno/DataBase/basededatos.ejs", {rol:'alumno',login: true });
       }else if(req.session.rol==1){
-      res.render("./viewsMaestro/DB.ejs", { login: true, rol:'maestro' });
+      res.render("./viewsMaestro/database/DB.ejs", { login: true, rol:'maestro' });
       }
       
   } else {
@@ -170,7 +170,7 @@ exports.AuthIN = (req, res) => {
         
         res.render("./viewsAlumno/Ingles/ingles.ejs", {rol:'alumno',login: true });
       }else if(req.session.rol==1){
-      res.render("./viewsMaestro/IN.ejs", { login: true, rol:'maestro' });
+      res.render("./viewsMaestro/English/IN.ejs", { login: true, rol:'maestro' });
       }
       
   } else {

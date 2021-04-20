@@ -11,7 +11,7 @@ const conexion = mysql.createConnection({
     
   });
   
-  wpdatabaseserver.mysql.database.azure.com
+  
   conexion.connect(function(error) {
     if (error){
       throw error;
