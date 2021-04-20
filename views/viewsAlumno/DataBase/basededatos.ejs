@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Administracion de Base de Datos</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../resources/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Third party plugin CSS-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="resources/styles.css" rel="stylesheet" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  </head>
+  <body id="page-top">
+    <% if(login && rol=="alumno") { %>
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg navbar-primary fixed-top py-3"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger text-dark" href="#page-top">UPMP</a>
+        <button
+          class="navbar-toggler navbar-toggler-right"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto my-2 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger text-dark" href="/"
+                >Materias</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger text-dark" href="/logout">Salir</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <h2 class="text-center mt-0">Administracion de Base de Datos</h2>
+            <hr class="divider my-3" />
+            <div class="row">
+                <div class="col-lg-4 col-md-6 text-center" >
+                  
+                    <div class="mt-5">
+                      <a href="/tareasDB">
+                        <i class="fas fa-4x fa-tasks text-primary mb-4 "></i>
+                        <h3 class="h4 mb-2">Tareas</h3>
+                      </a>
+                        <p class="text-muted mb-0">Vizuliza las calificaciones de tus tareas</p>
+                    </div>
+                  
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="mt-5">
+                      <a href="/examenDB">
+                        <i class="fas fa-4x  fa-file-alt text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Examenes</h3>
+                      </a>
+                        <p class="text-muted mb-0">Obten las calificaciones de tus examenes</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="mt-5" >
+                      <a href="/finalDB">
+                        <i class="fas fa-4x fa-flag-checkered text-primary mb-4" ></i>
+                        <h3 class="h4 mb-2">Calicacion Final</h3>
+                      </a>
+                        <p class="text-muted mb-0">Consigue tu promedio final</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <% } else if(rol=='maestro') { %>
+        <script>
+            Swal.fire({
+              title: "No Autorizado",
+              text: "No es un alumno",
+              icon: "error",
+              showConfirmButton: true,
+              timer: false,
+            }).then(() => {
+              window.location = "/login";
+            });
+          </script>
+         
+        <% } else  { %>
+        <script>
+          Swal.fire({
+            title: "Error",
+            text: "Debes iniciar sesion",
+            icon: "error",
+            showConfirmButton: true,
+            timer: false,
+          }).then(() => {
+            window.location = "/login";
+          });
+        </script>
+        <% } %>
+    <!-- Bootstrap core JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../controllers/scripts.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
