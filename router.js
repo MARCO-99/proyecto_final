@@ -113,6 +113,18 @@ router.get('/registroExamenDB',(req,res)=>{
 router.get('/registroFinalDB',(req,res)=>{
         res.render('./viewsMaestro/database/finalBD.ejs')
 })
+// Rutas de Ingles Maestros
+router.get('/ingles',crud.AuthIN)
+
+router.get('/registroTareasIN',(req,res)=>{
+        res.render('./viewsMaestro/English/tareaIN.ejs')
+})
+router.get('/registroExamenIN',(req,res)=>{
+        res.render('./viewsMaestro/English/examenIN.ejs')
+})
+router.get('/registroFinalIN',(req,res)=>{
+        res.render('./viewsMaestro/English/finalIN.ejs')
+})
 //directorio public
 router.use('/resources',express.static('Public'));
 router.use('/resources',express.static(__dirname + '/Public'));

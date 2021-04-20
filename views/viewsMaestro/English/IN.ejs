@@ -37,7 +37,7 @@
 
   </head>
   <body id="page-top">
-    <% if(login && rol=="alumno") { %>
+    <% if(login && rol=="maestro") { %>
     <!-- Navigation-->
     <nav
       class="navbar navbar-expand-lg navbar-primary fixed-top py-3"
@@ -81,37 +81,37 @@
                 <div class="col-lg-4 col-md-6 text-center" >
                   
                     <div class="mt-5">
-                      <a href="/tareasIN">
+                      <a href="/registroTareasIN">
                         <i class="fas fa-4x fa-tasks text-primary mb-4 "></i>
-                        <h3 class="h4 mb-2">Tareas</h3>
+                        <h3 class="h4 mb-2">Control de Tareas</h3>
                       </a>
-                        <p class="text-muted mb-0">Vizuliza las calificaciones de tus tareas</p>
+                        <p class="text-muted mb-0">Agrega, Modica o Elimina Calificaciones de las Tareas</p>
                     </div>
                   
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="mt-5">
-                      <a href="/examenIN">
+                      <a href="/registroExamenIN">
                         <i class="fas fa-4x  fa-file-alt text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Examenes</h3>
+                        <h3 class="h4 mb-2">Control de Examenes</h3>
                       </a>
-                        <p class="text-muted mb-0">Obten las calificaciones de tus examenes</p>
+                        <p class="text-muted mb-0">Agrega, Modica o Elimina Calificaciones de los examen </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="mt-5" >
-                      <a href="/finalIN">
+                      <a href="/registroFinalIN">
                         <i class="fas fa-4x fa-flag-checkered text-primary mb-4" ></i>
-                        <h3 class="h4 mb-2">Calicacion Final</h3>
+                        <h3 class="h4 mb-2">Control de Calicacion Final</h3>
                       </a>
-                        <p class="text-muted mb-0">Consigue tu promedio final</p>
+                        <p class="text-muted mb-0">Aseigna, Modifica o EliminaC promedio final</p>
                     </div>
                 </div>
                 
             </div>
         </div>
     </section>
-    <% } else if(rol=='maestro') { %>
+    <% } else if(rol=='alumno') { %>
         <script>
             Swal.fire({
               title: "No Autorizado",
