@@ -98,6 +98,33 @@ router.get('/examenDB',(req,res)=>{
 router.get('/finalDB',(req,res)=>{
         res.render('./viewsAlumno/DataBase/finalDB.ejs')
 })
+
+
+// Rutas de maestros
+//Rutas de bases de datos maestros
+router.get('/basededatos',crud.AuthDB)
+
+router.get('/registroTareasDB',(req,res)=>{
+        res.render('./viewsMaestro/database/tareaBD.ejs')
+})
+router.get('/registroExamenDB',(req,res)=>{
+        res.render('./viewsMaestro/database/examenBD.ejs')
+})
+router.get('/registroFinalDB',(req,res)=>{
+        res.render('./viewsMaestro/database/finalBD.ejs')
+})
+// Rutas de Ingles Maestros
+router.get('/ingles',crud.AuthIN)
+
+router.get('/registroTareasIN',(req,res)=>{
+        res.render('./viewsMaestro/English/tareaIN.ejs')
+})
+router.get('/registroExamenIN',(req,res)=>{
+        res.render('./viewsMaestro/English/examenIN.ejs')
+})
+router.get('/registroFinalIN',(req,res)=>{
+        res.render('./viewsMaestro/English/finalIN.ejs')
+})
 //directorio public
 router.use('/resources',express.static('Public'));
 router.use('/resources',express.static(__dirname + '/Public'));
