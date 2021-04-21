@@ -90,12 +90,31 @@
     </section>
     
     <!-- codigo de tablas Aqui -->
-
-
-
-
-
-
+    <table class="table table-bordered table-striped text-center mt-4">
+      <thead>
+        <tr class="bg-primary text-white">
+          <tr class="bg-primary text-white">
+            <th scope="col">Unidad</th>
+            <th scope="col">Descripcion</th>   
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido P</th>            
+            <th scope="col">Apellido M</th> 
+            <th scope="col">Calificacion</th>       
+          </tr>
+        </thead>
+        <tbody>
+          <% results.forEach((datos)=>{ %>
+            <tr>  
+                <td><%= datos.unidad %></td>  
+                <td><%= datos.descripcion %></td>
+                <td><%= datos.nombre %></td>
+                <td><%= datos.apellidoap %></td>
+                <td><%= datos.apellidoam %></td>
+                <td><%= datos.calificacion %></td>
+          </tr>                                   
+        <% }) %> 
+      </tbody>
+    </table>
 
     <!-- Bootstrap core JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

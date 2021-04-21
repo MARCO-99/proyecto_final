@@ -12,8 +12,16 @@ const crud = require('./controllers/loginProces');
 //Rutas para Matematicas
 router.get('/Matematicas',crud.AuthMT)
 router.get('/tareasMT',(req,res)=>{
-        res.render('./viewsAlumno/Matematicas/tareaMT.ejs')
+        conexion.query('CALL varCalificacionesTarea(2018110027, "matematicas para la ingenieria")', (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Matematicas/tareaMT.ejs')
+                }
+        })
 })
+
 router.get('/examenMT',(req,res)=>{
         res.render('./viewsAlumno/Matematicas/examenMT.ejs')
 })
@@ -25,8 +33,16 @@ router.get('/finalMT',(req,res)=>{
 router.get('/programacion',crud.AuthPG)
 
 router.get('/tareasPG',(req,res)=>{
-        res.render('./viewsAlumno/Programacion/tareaPG.ejs')
+        conexion.query('CALL varCalificacionesTarea(2018110027, "programacion orientada a objetos")', (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Programacion/tareaPG.ejs')
+                }
+        })
 })
+
 router.get('/examenPG',(req,res)=>{
         res.render('./viewsAlumno/Programacion/examenPG.ejs')
 })
@@ -38,8 +54,16 @@ router.get('/finalPG',(req,res)=>{
 router.get('/ingles',crud.AuthIN)
 
 router.get('/tareasIN',(req,res)=>{
-        res.render('./viewsAlumno/Ingles/tareaIN.ejs')
+        conexion.query('CALL varCalificacionesTarea(2018110027, "ingles VII")', (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Ingles/tareaIN.ejs')
+                }
+        })
 })
+
 router.get('/examenIN',(req,res)=>{
         res.render('./viewsAlumno/Ingles/examenIN.ejs')
 })
@@ -57,15 +81,29 @@ router.get('/examenRD',(req,res)=>{
         res.render('./viewsAlumno/Redes/examenRD.ejs')
 })
 router.get('/finalRD',(req,res)=>{
-        res.render('./viewsAlumno/Redes/finalRD.ejs')
+        conexion.query('CALL varCalificacionesTarea(2018110027, "interconexion de redes")', (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Redes/finalRD.ejs')
+                }
+        })
 })
-
 
 //Rutas para Sistemas operativos
 router.get('/sistemasOperativos',crud.AuthSO)
 router.get('/tareasSO',(req,res)=>{
-        res.render('./viewsAlumno/SistemasOperativos/tareaSO.ejs')
+        conexion.query("SELECT * from calificacionesTareas", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/SistemasOperativos/tareaSO.ejs',{results:results})
+                }
+        })
 })
+
 router.get('/examenSO',(req,res)=>{
         res.render('./viewsAlumno/SistemasOperativos/examenSO.ejs')
 })
@@ -77,7 +115,14 @@ router.get('/finalSO',(req,res)=>{
 router.get('/habilidades',crud.AuthHG)
 
 router.get('/tareasHG',(req,res)=>{
-        res.render('./viewsAlumno/HabilidadesG/tareaHG.ejs')
+        conexion.query('CALL varCalificacionesTarea(2018110027, "habilidades gerenciales")', (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/HabilidadesG/tareaHG.ejs')
+                }
+        })
 })
 router.get('/examenHG',(req,res)=>{
         res.render('./viewsAlumno/HabilidadesG/examenHG.ejs')
@@ -90,8 +135,16 @@ router.get('/finalHG',(req,res)=>{
 router.get('/basededatos',crud.AuthDB)
 
 router.get('/tareasDB',(req,res)=>{
-        res.render('./viewsAlumno/DataBase/tareasDB.ejs')
+        conexion.query('CALL varCalificacionesTarea(2018110027, "administracion base de datos")', (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/DataBase/tareasDB.ejs', {results:results})
+                }
+        })
 })
+
 router.get('/examenDB',(req,res)=>{
         res.render('./viewsAlumno/DataBase/examenDB.ejs')
 })
