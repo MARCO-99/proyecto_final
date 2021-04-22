@@ -90,30 +90,30 @@
     </section>
     
     <!-- codigo de tablas Aqui -->
-<table class="table table-bordered table-striped text-center mt-4">
-        <thead>
-          <tr class="bg-primary text-white">
-            <th scope="col">Unidad</th>
-            <th scope="col">Descripcion</th>   
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido P</th>            
-            <th scope="col">Apellido M</th> 
-            <th scope="col">Calificacion</th>       
-          </tr>
-        </thead>
-        <tbody>
-          <% results.forEach((calificacionesTareas)=>{ %>
-            <tr>  
-                <td><%= calificacionesTareas.Unidad %></td>  
-                <td><%= calificacionesTareas.Descripcion %></td>
-                <td><%= calificacionesTareas.Nombre %></td>
-                <td><%= calificacionesTareas.Apellidoap %></td>
-                <td><%= calificacionesTareas.Apellidoam %></td>
-                <td><%= calificacionesTareas.Calificacion %></td>
-            </tr>                                   
-          <% }) %> 
-        </tbody>
-      </table>
+    <table class="table table-bordered table-striped text-center mt-4">
+      <thead>
+        <tr class="bg-primary text-white">
+          <th scope="col">Unidad</th>
+          <th scope="col">Descripcion</th>   
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido P</th>            
+          <th scope="col">Apellido M</th> 
+          <th scope="col">Calificacion</th>       
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach((calTarea)=>{ %>
+          <tr>  
+              <td><%= calTarea.unidad %></td>  
+              <td><%= calTarea.descripcion %></td>
+              <td><%= calTarea.nombre %></td>
+              <td><%= calTarea.apellidoap %></td>
+              <td><%= calTarea.apellidoam %></td>
+              <td><%= calTarea.calificacion %></td>
+          </tr>                                   
+        <% }) %> 
+      </tbody>
+    </table>
 
     <!-- Bootstrap core JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

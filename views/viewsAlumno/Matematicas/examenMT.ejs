@@ -90,12 +90,28 @@
     </section>
     
     <!-- codigo de tablas Aqui -->
-
-
-
-
-
-
+    <table class="table table-bordered table-striped text-center mt-4">
+      <thead>
+        <tr class="bg-primary text-white">
+          <th scope="col">Unidad</th>  
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido P</th>            
+          <th scope="col">Apellido M</th> 
+          <th scope="col">Calificacion</th>       
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach((calExamen)=>{ %>
+          <tr>  
+              <td><%= calExamen.unidad %></td>  
+              <td><%= calExamen.nombre %></td>
+              <td><%= calExamen.apellidoap %></td>
+              <td><%= calExamen.apellidoam %></td>
+              <td><%= calExamen.calificacion %></td>
+          </tr>                                   
+        <% }) %> 
+      </tbody>
+    </table>
 
     <!-- Bootstrap core JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

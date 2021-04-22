@@ -11,90 +11,153 @@ const crud = require('./controllers/loginProces');
 // })
 //Rutas para Matematicas
 router.get('/Matematicas',crud.AuthMT)
+
 router.get('/tareasMT',(req,res)=>{
-        conexion.query('CALL varCalificacionesTarea(2018110027, "matematicas para la ingenieria")', (err,results)=>{
+        conexion.query("SELECT * from calTarea where name_materia='matematicas para la ingenieria';", (err,results)=>{
                 if (err){
                         throw err;
                 }
                 else{
-                        res.render('./viewsAlumno/Matematicas/tareaMT.ejs')
+                        res.render('./viewsAlumno/Matematicas/tareaMT.ejs',{results:results})
                 }
         })
 })
 
 router.get('/examenMT',(req,res)=>{
-        res.render('./viewsAlumno/Matematicas/examenMT.ejs')
+        conexion.query("SELECT * from calExamen where name_materia='matematicas para la ingenieria';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Matematicas/examenMT.ejs', {results:results})
+                }
+        })
 })
+
 router.get('/finalMT',(req,res)=>{
-        res.render('./viewsAlumno/Matematicas/finalMT.ejs')
+        conexion.query("SELECT * from calFInal where name_materia='matematicas para la ingenieria';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Matematicas/finalMT.ejs',{results:results})
+                }
+        })
 })
 
 //Rutas para Proframacion
 router.get('/programacion',crud.AuthPG)
 
 router.get('/tareasPG',(req,res)=>{
-        conexion.query('CALL varCalificacionesTarea(2018110027, "programacion orientada a objetos")', (err,results)=>{
+        conexion.query("SELECT * from calTarea where name_materia='programacion orientada a objetos';", (err,results)=>{
                 if (err){
                         throw err;
                 }
                 else{
-                        res.render('./viewsAlumno/Programacion/tareaPG.ejs')
+                        res.render('./viewsAlumno/Programacion/tareaPG.ejs',{results:results})
                 }
         })
 })
 
 router.get('/examenPG',(req,res)=>{
-        res.render('./viewsAlumno/Programacion/examenPG.ejs')
+        conexion.query("SELECT * from calExamen where name_materia='programacion orientada a objetos';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Programacion/examenPG.ejs',{results:results})
+                }
+        })
 })
+
 router.get('/finalPG',(req,res)=>{
-        res.render('./viewsAlumno/Programacion/finalPG.ejs')
+        conexion.query("SELECT * from calFinal where name_materia='programacion orientada a objetos';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Programacion/finalPG.ejs',{results:results})
+                }
+        })
 })
 
 //Rutas para Ingles
 router.get('/ingles',crud.AuthIN)
 
 router.get('/tareasIN',(req,res)=>{
-        conexion.query('CALL varCalificacionesTarea(2018110027, "ingles VII")', (err,results)=>{
+        conexion.query("SELECT * from calTarea where name_materia='ingles VII';", (err,results)=>{
                 if (err){
                         throw err;
                 }
                 else{
-                        res.render('./viewsAlumno/Ingles/tareaIN.ejs')
+                        res.render('./viewsAlumno/Ingles/tareaIN.ejs',{results:results})
                 }
         })
 })
 
 router.get('/examenIN',(req,res)=>{
-        res.render('./viewsAlumno/Ingles/examenIN.ejs')
+        conexion.query("SELECT * from calExamen where name_materia='ingles VII';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Ingles/examenIN.ejs',{results:results})
+                }
+        })
 })
+
 router.get('/finalIN',(req,res)=>{
-        res.render('./viewsAlumno/Ingles/finalIN.ejs')
+        conexion.query("SELECT * from calFinal where name_materia='ingles VII';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Ingles/finalIN.ejs',{results:results})
+                }
+        })
 })
 
 //Rutas para Redes
 router.get('/redes',crud.AuthRD)
 
 router.get('/tareasRD',(req,res)=>{
-        res.render('./viewsAlumno/Redes/tareaRD.ejs')
-})
-router.get('/examenRD',(req,res)=>{
-        res.render('./viewsAlumno/Redes/examenRD.ejs')
-})
-router.get('/finalRD',(req,res)=>{
-        conexion.query('CALL varCalificacionesTarea(2018110027, "interconexion de redes")', (err,results)=>{
+        conexion.query("SELECT * from calTarea where name_materia='interconexion de redes';", (err,results)=>{
                 if (err){
                         throw err;
                 }
                 else{
-                        res.render('./viewsAlumno/Redes/finalRD.ejs')
+                        res.render('./viewsAlumno/Redes/tareaRD.ejs',{results:results})
+                }
+        })
+})
+
+router.get('/examenRD',(req,res)=>{
+        conexion.query("SELECT * from calExamen where name_materia='interconexion de redes';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Redes/examenRD.ejs',{results:results})
+                }
+        })
+})
+
+router.get('/finalRD',(req,res)=>{
+        conexion.query("SELECT * from calFinal where name_materia='interconexion de redes';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/Redes/finalRD.ejs',{results:results})
                 }
         })
 })
 
 //Rutas para Sistemas operativos
 router.get('/sistemasOperativos',crud.AuthSO)
+
 router.get('/tareasSO',(req,res)=>{
-        conexion.query("SELECT * from calificacionesTareas", (err,results)=>{
+        conexion.query("SELECT * from calTarea where name_materia='sistemas operativos';", (err,results)=>{
                 if (err){
                         throw err;
                 }
@@ -105,37 +168,68 @@ router.get('/tareasSO',(req,res)=>{
 })
 
 router.get('/examenSO',(req,res)=>{
-        res.render('./viewsAlumno/SistemasOperativos/examenSO.ejs')
+        conexion.query("SELECT * from calExamen where name_materia='sistemas operativos';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/SistemasOperativos/examenSO.ejs',{results:results})
+                }
+        })
 })
+
 router.get('/finalSO',(req,res)=>{
-        res.render('./viewsAlumno/SistemasOperativos/finalSO.ejs')
+        conexion.query("SELECT * from calFinal where name_materia='sistemas operativos';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/SistemasOperativos/finalSO.ejs',{results:results})
+                }
+        })
 })
 
 //Rutas para Habilidades Gerenciales
 router.get('/habilidades',crud.AuthHG)
 
 router.get('/tareasHG',(req,res)=>{
-        conexion.query('CALL varCalificacionesTarea(2018110027, "habilidades gerenciales")', (err,results)=>{
+        conexion.query("SELECT * from calTarea where name_materia='habilidades gerenciales';", (err,results)=>{
                 if (err){
                         throw err;
                 }
                 else{
-                        res.render('./viewsAlumno/HabilidadesG/tareaHG.ejs')
+                        res.render('./viewsAlumno/HabilidadesG/tareaHG.ejs',{results:results})
                 }
         })
 })
+
 router.get('/examenHG',(req,res)=>{
-        res.render('./viewsAlumno/HabilidadesG/examenHG.ejs')
+        conexion.query("SELECT * from calExamen where name_materia='habilidades gerenciales';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/HabilidadesG/examenHG.ejs',{results:results})
+                }
+        })
 })
+
 router.get('/finalHG',(req,res)=>{
-        res.render('./viewsAlumno/HabilidadesG/finalHG.ejs')
+        conexion.query("SELECT * from calFinal where name_materia='habilidades gerenciales';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/HabilidadesG/finalHG.ejs',{results:results})
+                }
+        })
 })
 
 //Rutas para base de datos
 router.get('/basededatos',crud.AuthDB)
 
 router.get('/tareasDB',(req,res)=>{
-        conexion.query('CALL varCalificacionesTarea(2018110027, "administracion base de datos")', (err,results)=>{
+        conexion.query("SELECT * from calTarea where name_materia='administracion de base de datos';", (err,results)=>{
                 if (err){
                         throw err;
                 }
@@ -146,10 +240,25 @@ router.get('/tareasDB',(req,res)=>{
 })
 
 router.get('/examenDB',(req,res)=>{
-        res.render('./viewsAlumno/DataBase/examenDB.ejs')
+        conexion.query("SELECT * from calExamen where name_materia='administracion de base de datos';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/DataBase/examenDB.ejs', {results:results})
+                }
+        })
 })
+
 router.get('/finalDB',(req,res)=>{
-        res.render('./viewsAlumno/DataBase/finalDB.ejs')
+        conexion.query("SELECT * from calFinal where name_materia='administracion de base de datos';", (err,results)=>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsAlumno/DataBase/finalDB.ejs', {results:results})
+                }
+        })
 })
 
 
@@ -166,6 +275,7 @@ router.get('/registroExamenDB',(req,res)=>{
 router.get('/registroFinalDB',(req,res)=>{
         res.render('./viewsMaestro/database/finalBD.ejs')
 })
+
 // Rutas de Ingles Maestros
 router.get('/ingles',crud.AuthIN)
 
@@ -178,6 +288,7 @@ router.get('/registroExamenIN',(req,res)=>{
 router.get('/registroFinalIN',(req,res)=>{
         res.render('./viewsMaestro/English/finalIN.ejs')
 })
+
 //directorio public
 router.use('/resources',express.static('Public'));
 router.use('/resources',express.static(__dirname + '/Public'));
@@ -186,7 +297,7 @@ router.use('/resources',express.static(__dirname + '/Public'));
 
 router.get('/register',(req,res)=>{
         res.render('register.ejs');
-    });
+});
 //autenticacion
 router.get('/login',(req,res)=>{
         res.render('../views/login.ejs')
