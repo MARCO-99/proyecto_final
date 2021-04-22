@@ -78,18 +78,6 @@
     </nav>
     
     <!-- Services-->
-    <section class="page-section" id="services">
-        <div class="container">
-            
-            
-            <h2 class="text-center mt-0">Tareas de Matematicas</h2>
-            <hr class="divider my-3" />
-            
-        </div>
-        
-    </section>
-    
-    <!-- codigo de tablas Aqui -->
     <table class="table table-bordered table-striped text-center mt-4">
       <thead>
         <tr class="bg-primary text-white">
@@ -102,14 +90,14 @@
         </tr>
       </thead>
       <tbody>
-        <% results.forEach((datos)=>{ %>
+        <% results.forEach((calTarea)=>{ %>
           <tr>  
-              <td><%= datos.unidad %></td>  
-              <td><%= datos.descripcion %></td>
-              <td><%= datos.nombre %></td>
-              <td><%= datos.apellidoap %></td>
-              <td><%= datos.apellidoam %></td>
-              <td><%= datos.calificacion %></td>
+            <td><%= calTarea.unidad %></td>  
+            <td><%= calTarea.descripcion %></td>
+            <td><%= calTarea.nombre %></td>
+            <td><%= calTarea.apellidoap %></td>
+            <td><%= calTarea.apellidoam %></td>
+            <td><%= calTarea.calificacion %></td>
           </tr>                                   
         <% }) %> 
       </tbody>

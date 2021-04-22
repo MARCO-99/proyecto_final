@@ -90,12 +90,30 @@
     </section>
     
     <!-- codigo de tablas Aqui -->
-
-
-
-
-
-
+    <table class="table table-bordered table-striped text-center mt-4">
+      <thead>
+        <tr class="bg-primary text-white">   
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido P</th>            
+          <th scope="col">Apellido M</th> 
+          <th scope="col">Promedio Tarea</th>
+          <th scope="col">Promedio Examen</th>
+          <th scope="col">Promedio Final</th>       
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach((calFinal)=>{ %>
+          <tr>  
+              <td><%= calFinal.nombre %></td>
+              <td><%= calFinal.apellidoap %></td>
+              <td><%= calFinal.apellidoam %></td>
+              <td><%= calFinal.Promedio_Final_Tarea %></td>
+              <td><%= calFinal.Promedio_Final_Examen %></td>
+              <td><%= calFinal.Promedio_Final %></td>
+          </tr>                                   
+        <% }) %> 
+      </tbody>
+    </table>
 
     <!-- Bootstrap core JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

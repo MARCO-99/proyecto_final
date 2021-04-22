@@ -91,11 +91,32 @@
     
     <!-- codigo de tablas Aqui -->
 
-
-
-
-
-
+    <div  eblclass="container">    
+      <a href="/create" class="btn btn-outline-primary mt-4"><i class='bx bxs-plus-circle bx-md'></i></a>
+    <table class="table table-bordered table-striped text-center mt-4">
+      <thead>
+        <tr class="bg-primary text-white">
+          <th scope="col">id_tarea</th>
+          <th scope="col">id_mp</th>
+          <th scope="col">id_unidad</th>            
+          <th scope="col">descripcion</th> 
+          <th scope="col">fecha_de_entrega</th>            
+        </tr>
+      </thead>
+      <tbody>
+      <% results.forEach((user)=>{ %>
+        <tr>  
+              <td><%= user.id_tarea %></td>  
+              <td><%= user.id_mp %></td>
+              <td><%= user. %></td>
+              <td>
+                <a href="/edit/<%= user.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
+                <a href="/delete/<%= user.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash-alt'></i></a>                   
+              </td>
+          </tr>                                   
+      <% }) %>
+      </tbody>
+    </table>
 
     <!-- Bootstrap core JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

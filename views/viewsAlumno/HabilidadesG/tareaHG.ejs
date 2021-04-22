@@ -93,24 +93,23 @@
     <table class="table table-bordered table-striped text-center mt-4">
       <thead>
         <tr class="bg-primary text-white">
-          <tr class="bg-primary text-white">
-            <th scope="col">Unidad</th>
-            <th scope="col">Descripcion</th>   
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido P</th>            
-            <th scope="col">Apellido M</th> 
-            <th scope="col">Calificacion</th>       
-          </tr>
-        </thead>
-        <tbody>
-          <% results.forEach((datos)=>{ %>
-            <tr>  
-                <td><%= datos.unidad %></td>  
-                <td><%= datos.descripcion %></td>
-                <td><%= datos.nombre %></td>
-                <td><%= datos.apellidoap %></td>
-                <td><%= datos.apellidoam %></td>
-                <td><%= datos.calificacion %></td>
+          <th scope="col">Unidad</th>
+          <th scope="col">Descripcion</th>   
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido P</th>            
+          <th scope="col">Apellido M</th> 
+          <th scope="col">Calificacion</th>       
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach((calTarea)=>{ %>
+          <tr>  
+            <td><%= calTarea.unidad %></td>  
+            <td><%= calTarea.descripcion %></td>
+            <td><%= calTarea.nombre %></td>
+            <td><%= calTarea.apellidoap %></td>
+            <td><%= calTarea.apellidoam %></td>
+            <td><%= calTarea.calificacion %></td>
           </tr>                                   
         <% }) %> 
       </tbody>

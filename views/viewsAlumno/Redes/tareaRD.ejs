@@ -102,14 +102,14 @@
         </tr>
       </thead>
       <tbody>
-        <% results.forEach((datos)=>{ %>
+        <% results.forEach((calTarea)=>{ %>
           <tr>  
-              <td><%= datos.unidad %></td>  
-              <td><%= datos.descripcion %></td>
-              <td><%= datos.nombre %></td>
-              <td><%= datos.apellidoap %></td>
-              <td><%= datos.apellidoam %></td>
-              <td><%= datos.calificacion %></td>
+            <td><%= calTarea.unidad %></td>  
+            <td><%= calTarea.descripcion %></td>
+            <td><%= calTarea.nombre %></td>
+            <td><%= calTarea.apellidoap %></td>
+            <td><%= calTarea.apellidoam %></td>
+            <td><%= calTarea.calificacion %></td>
           </tr>                                   
         <% }) %> 
       </tbody>
