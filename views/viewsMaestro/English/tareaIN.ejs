@@ -90,6 +90,38 @@
     </section>
     
     <!-- codigo de tablas Aqui -->
+    <div class="container">
+      <a href="/createTareaIN" class='btn btn-outline-primary mt 4' style="background-color: coral"><i class='bx bx-plus-circle bx-md'></i></a>
+      <!-- tabla -->
+      <table class=" table table-bordered table table striped text-center mt-4">
+          <!-- encabezados -->
+          <thead>
+              <tr class="bg-primary text-white">
+                  <th scope="col">ID</th>
+                  <th scope="col">DESCRIPCION</th>
+                  <th scope="col">FECHA ENTREGA</th>
+                  <th scope="col">AASIGNAR CALIFICACION</th>
+                  <th scope="col">ACCIONES</th>
+                  </tr>
+          </thead>
+          <!-- filas y columnas -->
+          <tbody>
+              <% resultados.forEach((data)=>{ %>
+              <tr>
+                  <td><%= data.id_tarea %></td>
+                  <td><%= data.descripcion %></td>
+                  <td><%= data.fecha_de_entrega %></td>
+                  <td><a href="/asignar" class="btn btn-outline-info"  style="background-color: rgb(29, 116, 216);">Alumnos</a></td>
+                  <td>
+                      <!-- video 3 min 11:26 -->
+                      <a href="/editTareaIN" class="btn btn-outline-info" style="background-color: rgb(29, 116, 216); color: rgb(255, 255, 255);">Editar</a>
+                      <a href="/deleteTareaIN" class="btn btn-outline-info"  style="background-color: rgb(211, 44, 72); color: rgb(253, 253, 253);">Borrar</a>
+                  </td>
+              </tr>
+              <% }) %>  
+          </tbody>
+      </table>
+  </div>
 
 
 

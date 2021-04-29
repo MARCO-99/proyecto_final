@@ -8,7 +8,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Examenes de Ingles</title>
+    <title>Tareas de Bases de Datos</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="../resources/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -62,8 +62,8 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto my-2 my-lg-0">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-dark" href="/ingles"
-                >Ingles</a
+              <a class="nav-link js-scroll-trigger text-dark" href="/basededatos"
+                >Bases de Datos</a
               >
             </li>
             <li class="nav-item">
@@ -85,7 +85,7 @@
         <div class="container">
             
             
-            <h2 class="text-center mt-0">Examenes de Ingles</h2>
+            <h2 class="text-center mt-0">Tareas de Bases de Datos</h2>
             <hr class="divider my-3" />
             
         </div>
@@ -93,36 +93,34 @@
     </section>
     
     <!-- codigo de tablas Aqui -->
-
     <div class="container">
-      <a href="/create" class='btn btn-outline-primary mt 4' style="background-color: coral"><i class='bx bx-plus-circle bx-md'></i></a>
       <!-- tabla -->
       <table class=" table table-bordered table table striped text-center mt-4">
           <!-- encabezados -->
           <thead>
               <tr class="bg-primary text-white">
-                <th scope="col">ID</th>
-                <th scope="col">UNIDAD</th>
-                <th scope="col">FECHA DE APLICACION</th>
-                <th scope="col">CALIFICACION</th>
-                <th scope="col">ACCIONES</th>
+                  <th scope="col">DESCRIPCION</th>
+                  <th scope="col">NOMBRE DEL ALUMNO</th>
+                  <th scope="col">APELLIDO</th>
+                  <th scope="col">CALIFICACION</th>
+                  <th scope="col">ACCIONES</th>
                   </tr>
           </thead>
           <!-- filas y columnas -->
           <tbody>
               <% resultados.forEach((data)=>{ %>
               <tr>
-                  <td><%= data.id_examen %></td>
-                  <td><%= data.unidad %></td>
-                  <td><%= data.fecha_de_aplicacion %></td>
-                  <td><a href="/asignar" class="btn btn-outline-info"  style="background-color: rgb(29, 116, 216);">Alumnos</a></td>
+                  <td><%= data.descripcion %></td>
+                  <td><%= data.nombre %></td>
+                  <td><%= data.apellidoap %></td>
+                  <td><%= data.matricula %></td>
+                  <td><%= data.calificacion %></td>
                   <td>
-                      <!-- video 3 min 11:26 -->
-                      <a href="/edit" class="btn btn-outline-info" style="background-color: rgb(29, 116, 216);">Editar</a>
-                      <a href="/delete" class="btn btn-outline-info"  style="background-color: rgb(211, 44, 72);">Borrar</a>
+                    <a onclick="calificacion(<%= data.id_tarea %>, <%= data.matricula %>)" class="btn btn-outline-info" style="background-color: rgb(29, 116, 216); color: white;">CAMBIAR CALIFICACION</a>
                   </td>
               </tr>
               <% }) %>  
+            </form>
           </tbody>
       </table>
   </div>
@@ -146,5 +144,14 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
+    <!-- SWEET ALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+    
+
+    <script>
+      function calificacion(id_tarea, matricula){
+           window.location = '/asignarCalificacionesBD/'+id_tarea+'/'+matricula;
+      }
+    </script>
   </body>
 </html>
