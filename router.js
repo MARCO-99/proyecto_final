@@ -234,10 +234,11 @@ router.get('/tareasDB',(req,res)=>{
                         throw err;
                 }
                 else{
-                        res.render('./viewsAlumno/DataBase/tareasDB.ejs', {results:results})
+                        res.render('./viewsAlumno/DataBase/tareasDB.ejs', {results:results});
                 }
         })
 })
+
 
 router.get('/examenDB',(req,res)=>{
         conexion.query("SELECT * from calExamen where name_materia='administracion de base de datos';", (err,results)=>{
@@ -264,14 +265,129 @@ router.get('/finalDB',(req,res)=>{
 
 // Rutas de maestros
 //Rutas de bases de datos maestros
+const crudTarea = require('./controllers/crudTarea');
+const crudExamen = require('./controllers/crudExamen');
+const { response } = require('express');
+
 router.get('/basededatos',crud.AuthDB)
 
 router.get('/registroTareasDB',(req,res)=>{
-        res.render('./viewsMaestro/database/tareaBD.ejs')
+        // Ruta para visualizar las tareas BD
+        conexion.query("SELECT * FROM tarea, materiaprof WHERE tarea.id_mp = materiaprof.id_mp and materiaprof.id_materia = 45;", (err, resultados) =>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsMaestro/database/tareaBD.ejs', {resultados:resultados});
+                }
+        })
+        // res.render('./viewsMaestro/database/tareaBD.ejs')
 })
+
+router.get('/asignarCalificacionesBD/:id_tarea/:matricula', (req, res)=>{
+        const id_tarea = req.params.id_tarea;
+        const matricula = req.params.amtricula;
+        conexion.query("SELECT ta.id_tarea, alumno.matricula, alumno.nombre, alumno.apellidoap, ta.calificacion FROM ta, alumno WHERE ta.id_tarea = ? and ta.matricula = ? and ta.matricula = alumno.matricula;",[id_tarea, matricula], (err, resultados) =>{
+                console.log({resultados:resultados});
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsMaestro/database/asignarCalificacionBD.ejs', {resultados:resultados});
+                }
+        })
+})
+
+router.post('/asignacalificacion',crudTarea.asignacalificacion);
+
+
+ router.get('/calificacionesTareasDB/:id_tarea',(req,res)=>{
+        // Ruta para visualizar las tareas BD
+        const id_tarea = req.params.id_tarea;
+        conexion.query("SELECT tarea.id_tarea, tarea.descripcion, alumno.matricula, alumno.nombre, alumno.apellidoap, ta.calificacion FROM tarea, ta, alumno WHERE tarea.id_tarea = ? and ta.matricula = alumno.matricula and tarea.id_tarea = ta.id_tarea;",[id_tarea], (err, resultados) =>{
+                console.log({resultados:resultados});
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsMaestro/database/calificacionesTareasDB.ejs', {resultados:resultados});
+                }
+        })
+        // res.render('./viewsMaestro/database/tareaBD.ejs')
+}) 
+
+
+
+router.get('/nuevaTareaDB', (req, res)=>{
+        res.render('./viewsMaestro/database/nuevaTareaDB');
+})
+
+
+router.post('/saveTarea', crudTarea.saveTarea);
+
+
+
+router.get('/deleteTarea/:id_tarea', (req,res)=>{
+        const id_tarea = req.params.id_tarea;
+        conexion.query('DELETE FROM ta WHERE id_tarea=?;',[id_tarea], (error, results)=>{
+                if(error){
+                        throw error;
+                }
+                else{
+                        conexion.query('DELETE FROM tarea WHERE id_tarea=?;',[id_tarea], (error, results)=>{
+                                if(error){
+                                        throw error;
+                                }else{
+                                        console.log(results);
+                                        res.redirect('/registroTareasDB');
+                                }
+                        })
+                }       
+        })
+})
+
+router.get('/editarTareasDB/:id_tarea', (req, res)=>{
+        const id_tarea = req.params.id_tarea;
+        conexion.query('SELECT * FROM tarea WHERE id_tarea=?;',[id_tarea], (error, resultados)=>{
+                if(error){
+                        throw error;
+                }
+                else{
+                        //console.log(JSON.stringify(resultados[0]));
+                        res.render('./viewsMaestro/database/editarTareasDB',{resultados:resultados});
+                        // console.log(tarea);
+                }       
+        })
+})
+
+router.post('/updateTarea',crudTarea.updateTarea);
+
+
+
+//MAESTROS Rutas para examen DB
+router.post('/saveExamen',crudExamen.saveExamen);
+
 router.get('/registroExamenDB',(req,res)=>{
-        res.render('./viewsMaestro/database/examenBD.ejs')
+        /*res.render('./viewsMaestro/database/examenBD.ejs')*/
+        conexion.query("SELECT * FROM examen, materiaprof WHERE examen.id_mp = materiaprof.id_mp AND materiaprof.id_materia = 45;", (err, resultados) =>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsMaestro/database/examenBD.ejs', {resultados:resultados})
+                }
+        })
 })
+
+router.get('/nuevoExamenDB', (req, res)=>{
+        res.render('./viewsMaestro/database/nuevoExamenDB');
+})
+
+/*const crudExamen = require('./controllers/crudExamen');
+const { respuesta } = require('express');
+router.post('/save', crudExamen.guardar);*/
+
+
 router.get('/registroFinalDB',(req,res)=>{
         res.render('./viewsMaestro/database/finalBD.ejs')
 })
@@ -280,11 +396,33 @@ router.get('/registroFinalDB',(req,res)=>{
 router.get('/ingles',crud.AuthIN)
 
 router.get('/registroTareasIN',(req,res)=>{
-        res.render('./viewsMaestro/English/tareaIN.ejs')
+        conexion.query("SELECT * FROM tarea;", (err, resultados) =>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsMaestro/English/tareaIN.ejs', {resultados:resultados})
+                }
+        })
+        // res.render('./viewsMaestro/English/tareaIN.ejs')
 })
+
 router.get('/registroExamenIN',(req,res)=>{
-        res.render('./viewsMaestro/English/examenIN.ejs')
+        /*res.render('./viewsMaestro/English/examenIN.ejs')*/
+        conexion.query("SELECT * FROM examen, materiaprof WHERE examen.id_mp = materiaprof.id_mp AND materiaprof.id_materia = 46;", (err, resultados) =>{
+                if (err){
+                        throw err;
+                }
+                else{
+                        res.render('./viewsMaestro/English/examenIN.ejs', {resultados:resultados});
+                }
+        })
 })
+
+router.get('/nuevoExamenIN', (req, res)=>{
+        res.render('./viewsMaestro/English/nuevoExamenIN');
+})
+
 router.get('/registroFinalIN',(req,res)=>{
         res.render('./viewsMaestro/English/finalIN.ejs')
 })

@@ -8,7 +8,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Examenes de Ingles</title>
+    <title>Control de Examnes de Bases de Datos</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="../resources/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -35,8 +35,11 @@
     <link href="resources/styles.css" rel="stylesheet" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <!-- Bootstrap CSS -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    
+     <!-- Bootstrap CSS -->
+     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
 
   </head>
   <body id="page-top">
@@ -62,8 +65,8 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto my-2 my-lg-0">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-dark" href="/ingles"
-                >Ingles</a
+              <a class="nav-link js-scroll-trigger text-dark" href="/basededatos"
+                >Bases de Datos</a
               >
             </li>
             <li class="nav-item">
@@ -85,7 +88,7 @@
         <div class="container">
             
             
-            <h2 class="text-center mt-0">Examenes de Ingles</h2>
+            <h2 class="text-center mt-0">Control de Examenes de Bases de Datos</h2>
             <hr class="divider my-3" />
             
         </div>
@@ -93,39 +96,42 @@
     </section>
     
     <!-- codigo de tablas Aqui -->
+    <div class="container mt-4">
+        <div class="card border-secondary">
+            <div  class="card-header">Nuevo registro</div>
+            <div class="card-body">
+                <form action="/save" method="POST">
+                    <div class="mb-3">
+                        <label for="id_mp" class="form-label">id_mp</label>
+                        <select id="rol" name="rol" class="form-select" aria-label="Default select example">
+                          <option value="1">  1</option>
+                          <option value="2"> 2</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="unidad" class="form-label">Unidad</label>
+                      <select id="rol" name="rol" class="form-select" aria-label="Default select example">
+                        <option value="1">Unidad 1</option>
+                        <option value="2">Unidad 2</option>
+                      </select>
+                      <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripcion</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">fecha de aplicacion</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    
 
-    <div class="container">
-      <a href="/create" class='btn btn-outline-primary mt 4' style="background-color: coral"><i class='bx bx-plus-circle bx-md'></i></a>
-      <!-- tabla -->
-      <table class=" table table-bordered table table striped text-center mt-4">
-          <!-- encabezados -->
-          <thead>
-              <tr class="bg-primary text-white">
-                <th scope="col">ID</th>
-                <th scope="col">UNIDAD</th>
-                <th scope="col">FECHA DE APLICACION</th>
-                <th scope="col">CALIFICACION</th>
-                <th scope="col">ACCIONES</th>
-                  </tr>
-          </thead>
-          <!-- filas y columnas -->
-          <tbody>
-              <% resultados.forEach((data)=>{ %>
-              <tr>
-                  <td><%= data.id_examen %></td>
-                  <td><%= data.unidad %></td>
-                  <td><%= data.fecha_de_aplicacion %></td>
-                  <td><a href="/asignar" class="btn btn-outline-info"  style="background-color: rgb(29, 116, 216);">Alumnos</a></td>
-                  <td>
-                      <!-- video 3 min 11:26 -->
-                      <a href="/edit" class="btn btn-outline-info" style="background-color: rgb(29, 116, 216);">Editar</a>
-                      <a href="/delete" class="btn btn-outline-info"  style="background-color: rgb(211, 44, 72);">Borrar</a>
-                  </td>
-              </tr>
-              <% }) %>  
-          </tbody>
-      </table>
-  </div>
+
 
 
 
